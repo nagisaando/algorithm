@@ -1,3 +1,5 @@
+// O(log N)
+
 export default function bs_list(haystack: number[], needle: number): boolean {
     let lowPoint = 0; // lowPoint is inclusive: The element at lowPoint is always included in the search range.
     let highPoint = haystack.length; // highPoint is exclusive: The element at highPoint is always excluded from the search range.
