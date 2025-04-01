@@ -14,3 +14,8 @@
 1. When data-set is ordered
 2. LogN or NLogN (if we are scanning the value)
 3. Keep looking at a value, dividing the array in half, again looking at a value, dividing the array in half....repeating till find the value
+
+
+## Linked List Data Structures
+- It used heap allocated object. 
+- It creates a container to put the value and can manage them. 
