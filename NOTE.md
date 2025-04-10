@@ -19,3 +19,12 @@
 ## Linked List Data Structures
 - It used heap allocated object. 
 - It creates a container to put the value and can manage them. 
+- deleting time, inserting time => O(1) constant time 
+
+
+## Queue
+- specific implementation of a linked list
+- common data structure
+- first in, first out (FIFO structure)
+- singly linked list
+- opposite => stack
