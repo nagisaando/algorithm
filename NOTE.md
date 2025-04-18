@@ -45,4 +45,19 @@
 - just push or pop from either head or tail -> list is better
 - example: async request queue (linked list), old async complete, remove old one, add new async call
 
+### array list 
+- push(), pop(), getting value based on index => constant time O of 1
+- shift(), unshift(), enqueue, dequeue => O of N, if we add/remove item from the beginning, each item needs to be shift to next index which is not cost performant
+
+### array buffer
+- Ring buffer
+    - instead of index 0 as head and the length as tail (which is array list), it can have index based head and index based head
+    [<-------- [                      ]------------>]
+    0    Null  |                      |     Null    N
+               |                      |
+               head                   tail
+    - pop(), push(), shift(), unshift() => constant time O of 1
+    - this.tail % 2 => index of tail, if the index of tail exceeds the length N, it will go to the beginning of the array (like ring), if the array length is 10, and tail is 12 => 12 % 10 => the tail is index 2
+    - if tail exceeds the head, we need resizing
+
 
