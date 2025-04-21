@@ -1,4 +1,10 @@
-
+// This test proves that javascript array is
+// - getting element by index => O(1)
+// - Push / Pop => O(1)
+// - Unshift / Shift => O(n)
+// => It is using ArrayList (data structure) behind the scene
+// => const a = [] is not really "array"
+// => array can not "grow" but arrayList can
 const a: number[] = [];
 
 function time(fn: () => void): number {
@@ -32,45 +38,45 @@ function pop(number: number) {
 }
 
 function get(idx: number) {
-    return function() {
+    return function () {
         return a[idx];
     };
 }
 
 function push_arr(count: number) {
-    return function() {
+    return function () {
         push(count);
     };
 }
 
 function pop_arr(count: number) {
-    return function() {
+    return function () {
         pop(count);
     };
 }
 
 function unshift_arr(count: number) {
-    return function() {
+    return function () {
         unshift(count);
     };
 }
 
 function shift_arr(count: number) {
-    return function() {
+    return function () {
         shift(count);
     };
 }
 
 const tests = [10, 100, 1000, 10000, 100000, 1_000_000, 10_000_000];
 console.log("Testing get");
-tests.forEach(t => {
+tests.forEach((t) => {
     a.length = 0;
     push(t);
     console.log(t, time(get(t - 1)));
 });
 
 console.log("push");
-tests.forEach(t => {
+tests.forEach((t) => {
     a.length = 0;
     push(t);
 
@@ -78,7 +84,7 @@ tests.forEach(t => {
 });
 
 console.log("pop");
-tests.forEach(t => {
+tests.forEach((t) => {
     a.length = 0;
     push(t);
 
@@ -86,7 +92,7 @@ tests.forEach(t => {
 });
 
 console.log("unshift");
-tests.forEach(t => {
+tests.forEach((t) => {
     a.length = 0;
     push(t);
 
@@ -94,7 +100,7 @@ tests.forEach(t => {
 });
 
 console.log("shift");
-tests.forEach(t => {
+tests.forEach((t) => {
     a.length = 0;
     push(t);
 
