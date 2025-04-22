@@ -61,3 +61,39 @@
     - if tail exceeds the head, we need resizing
 
 
+
+## Recursion
+- recursion is a function that calls itself until the problem is solved. This usually involves what is referred to as a "base case". A base case is the point in which the problem is solved at.
+
+- it goes down the stack while recursing and goes up the stack after hit the base
+```ts
+function foo(n: number): number {
+    // Base case
+    if(n === 1) {
+        return 1;
+    }
+    // we will recurse!
+    return n + foo(n - 1);
+}
+```
+ 
+- recursion can be broken down to three steps
+1. pre: 
+    - you can do something before recursion: 
+    `n + `
+2. recursion
+3. post: 
+    - we can do something after recursion:
+    ```ts
+    function foo(n: number): number {
+
+        if(n === 1) {
+            return 1;
+        }
+       
+        const out = n + foo(n - 1);
+        console.log(n) // 1, 2, 3, 4, 5  <------- post
+
+        return out
+    }
+    ``` 
