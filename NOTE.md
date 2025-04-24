@@ -97,3 +97,8 @@ function foo(n: number): number {
         return out
     }
     ``` 
+
+- When to use it? 
+  - when there is branching factor, for example, maze has 4 possible directions: left, right, bottom, top
+  - when you can not do loop 
+
