@@ -102,3 +102,38 @@ function foo(n: number): number {
   - when there is branching factor, for example, maze has 4 possible directions: left, right, bottom, top
   - when you can not do loop 
 
+
+
+## Quick Sort
+
+### Divide and Conquer
+- being able to split your input in to two chunks, three, four .... , and go over those smaller subsets and solve things faster. 
+- it becomes smaller till to something fundamental unit
+- once it gets the point, the array is sorted (one element of the array is always sorted) and just undo the splitting and merging back to the one array (Merge sort)
+
+Quick sort works as the concept of divide and conquer
+```
+[                                     ] 
+0                                     N
+```
+and we decide pivot point (P)
+and walk through the elements from the beginning of the array. 
+
+if the element is smaller than or equal to the pivot, the element is placed in the beginning. 
+eventually it becomes like the array of left elements that are smaller or equal to P and right elements that are bigger than P, and P is somewhere in the middle
+```
+ [ --------------- <= P <--------------- ]
+```
+
+ then split to two item (P won't be included since it is already sorted)
+ ```
+ [ ------- (New Pivot)-------- ] P [---------(P)------ ]
+```
+
+and repeat the same process till it becomes the single element of array, which means all the elements are sorted. 
+
+We will need recursion since there are branching factor (one array divided to two, get sorted, two arrays becomes four, etc etc) 
+
+### Big O
+the most of case => n log of N
+the worst case => O of N squared
