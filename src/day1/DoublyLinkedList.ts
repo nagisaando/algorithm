@@ -50,23 +50,17 @@ export default class DoublyLinkedList<T> {
 
         this.length++;
 
-        // for insert, we have to traverse the list
         // we will find the next index element of where we want to insert the new node
-        let curr = this.head;
-        for (let i = 0; curr && i < idx; i++) {
-            curr = curr.next;
-        }
+        // since we already checked if the item exists in top condition, we can just be sure that it will return Node<T> by "as Node<T>;"
+        const curr = this.getAt(idx) as Node<T>;
 
-        curr = curr as Node<T>;
         const node = { value: item } as Node<T>;
         node.next = curr; // New node points to current node
         node.prev = curr.prev; // New node's prev points to current's prev
-
-        if (curr.prev) {
-            curr.prev.next = node; // Old prev node's next now points to new node
-        }
-
         curr.prev = node; // Current node's prev now points to new node
+        if (node.prev) {
+            node.prev.next = node; // Old prev node's next now points to new node
+        }
     }
     append(item: T): void {
         const node = { value: item } as Node<T>;
@@ -81,7 +75,66 @@ export default class DoublyLinkedList<T> {
         this.tail.next = node;
         this.tail = node;
     }
-    remove(item: T): T | undefined {}
-    get(idx: number): T | undefined {}
-    removeAt(idx: number): T | undefined {}
+    remove(item: T): T | undefined {
+        let curr = this.head;
+        for (let i = 0; curr && i < this.length; i++) {
+            if (curr.value === item) {
+                break;
+            }
+            curr = curr.next;
+        }
+        if (!curr) {
+            return undefined;
+        }
+        return this.removeNode(curr);
+    }
+    get(idx: number): T | undefined {
+        return this.getAt(idx)?.value;
+    }
+    removeAt(idx: number): T | undefined {
+        const node = this.getAt(idx);
+        if (!node) {
+            return undefined;
+        }
+        return this.removeNode(node);
+    }
+
+    private getAt(idx: number): Node<T> | undefined {
+        let curr = this.head;
+        for (let i = 0; curr && i < idx; i++) {
+            curr = curr.next;
+        }
+        return curr;
+    }
+
+    private removeNode(node: Node<T>): T | undefined {
+        this.length--;
+
+        if (this.length === 0) {
+            const out = this.head?.value;
+            this.head = this.tail = undefined;
+            return out;
+        }
+
+        // ===========================
+        // removing current item from the link list
+        if (node.prev) {
+            node.prev = node.next;
+        }
+        if (node.next) {
+            node.next = node.prev;
+        }
+        if (node === this.head) {
+            this.head = node.next;
+        }
+        if (node === this.tail) {
+            this.tail = node.prev;
+        }
+        // ===========================
+
+        // break current item from the linked list (clean up)
+        node.next = node.prev = undefined;
+
+        return node.value;
+    }
 }
