@@ -137,3 +137,23 @@ We will need recursion since there are branching factor (one array divided to tw
 ### Big O
 the most of case => n log of N
 the worst case => O of N squared
+
+
+## Tree
+
+### Terminology
+- root - the most parent node. The First. Adam.
+- height - The longest path from the root to the most child node
+- binary tree - a tree in which has at most 2 children, at least 0 children
+- general tree - a tree with 0 or more children
+- binary search tree - a tree in which has a specific ordering to the nodes and at most 2 children
+- leaves - a node without children
+- balanced - A tree is perfectly balanced when any node's left and right children have the same height.
+- branching factor - the amount of children a tree has.
+
+### Traversals
+there are different ways in which you can visit the nodes of a tree.
+
+- pre order: visit node first (we will do something for root node first)
+- in order: visit node in the middle (we will do something for root node in the middle)
+- post order: visit node in the end (we will do something for root node in the end)
