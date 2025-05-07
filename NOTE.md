@@ -154,6 +154,20 @@ the worst case => O of N squared
 ### Traversals
 there are different ways in which you can visit the nodes of a tree.
 
+#### Depth First Search
+These types of traversal are known as "Depth First Search"
+=> It is run as "stack"
+
 - pre order: visit node first (we will do something for root node first)
 - in order: visit node in the middle (we will do something for root node in the middle)
 - post order: visit node in the end (we will do something for root node in the end)
+
+
+#### Breadth First search
+Also there is another one called Breadth First search which is opposite to Depth First Search and uses Queue 
+
+- we don't need to recurse the tree. 
+- Queue (first in first out) <-> Stack (first in last out) 
+- tree level kind of visiting 
+- O of N but If we use javascript array, it will be O of N square, because we have to use shift, unshift which is O of N and not efficient 
+
