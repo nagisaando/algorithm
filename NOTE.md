@@ -171,3 +171,6 @@ Also there is another one called Breadth First search which is opposite to Depth
 - tree level kind of visiting 
 - O of N but If we use javascript array, it will be O of N square, because we have to use shift, unshift which is O of N and not efficient 
 
+
+The difference of Breadth First Search and Depth First Search is **"Depth First Search preserves the shape of traversal"**.
+That means we can also use it to compare the two binary structure equivalence 
