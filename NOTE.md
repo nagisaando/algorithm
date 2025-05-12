@@ -173,4 +173,8 @@ Also there is another one called Breadth First search which is opposite to Depth
 
 
 The difference of Breadth First Search and Depth First Search is **"Depth First Search preserves the shape of traversal"**.
-That means we can also use it to compare the two binary structure equivalence 
+That means we can also use it to compare the two binary structure equivalence a
+
+
+### Binary Search Three
+- it is not new data structure, it is specifically a ordering to the data within the data structure
