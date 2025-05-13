@@ -178,3 +178,34 @@ That means we can also use it to compare the two binary structure equivalence a
 
 ### Binary Search Three
 - it is not new data structure, it is specifically a ordering to the data within the data structure
+- It is a binary tree, but there is one rule: 
+    - left of the node needs to be less than or equal to the node
+    - right side needs to be greater than the node
+```   
+    <=              <
+<-----------[17]------------>
+           /    \
+        [15]    [50]
+        / \      /
+      [4] [16] [25] 
+                  \
+                  [26-50] <---- no bigger than 50 because this is left three of node 50 so needs to be smaller or equal to 50
+          
+```
+
+- find: log n - n 
+```js
+    find(node, value): bool {
+        if(!node) {
+            return false
+        }
+        if(node.value === value) {
+            return true
+        }
+        if(node.value < value) {
+            return find(node.right, value)
+        }
+        return find(node.left, value)
+    }
+```
+
