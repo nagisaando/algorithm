@@ -209,3 +209,96 @@ That means we can also use it to compare the two binary structure equivalence a
     }
 ```
 
+- insert: insert value where there is no node
+```js
+function find(node, value) {
+    if(node === null) {
+        return { value: v }
+    } 
+    if(node.value < value) {
+        node.right = insert(node.right, value)
+    } else {
+        node.left = insert(node.left, value)
+    }
+}
+```
+
+- delete
+  - case 1: delete a node that has no child
+            => delete
+    ```   
+        <=              <
+    <-----------[17]------------>
+            /    \
+            [15]    [50]
+            / \      /
+          [4] [16] [25] 
+                     \
+                    [26] <----------
+    ```
+
+
+  - case 2: delete a node that has one child 
+            delete a node, and set the child (26) to parent (50)
+    ```   
+        <=              <
+    <-----------[17]------------>
+                /    \
+            [15]    [50]
+            / \      /
+          [4] [16] [25] <----------
+                      \
+                       [26] 
+    ```
+
+
+  - case 3: delete a node that has children
+
+    ```   
+        <=              <
+    <-----------[17]------------>
+               /    \
+            [15]    [50] <--------------------
+            / \      /  \
+          [4] [16] [25] [100]
+                     \
+                     [37]
+    ```
+
+    [option 1] - replace with the largest element of the left tree (smaller side)
+
+    1. delete a node
+    2. take a left side of the deleted note (smaller side), and find the largest element.
+    3. set to where the deleted node is
+    [NOTE]: 
+    if we keep going the smaller side of the node, and keep going right, **there will be only one child or no child**. If there is a child, we have to apply "case 2" before along with replacing the place of the largest node of the left tree
+    ```   
+        <=              <
+    <-----------[17]------------>
+               /    \
+            [15]    [37] <--------------------
+            / \      /  \
+          [4] [16] [25] [100]
+    ```
+
+
+
+    [option 2] - replace with the smallest element of the right tree (bigger side)
+
+    1. delete a node
+    2. take a right side of the deleted note (bigger side), and find the smallest element.
+    3. set to where the deleted node is
+    [NOTE]: 
+    if we keep going the bigger side of the node, and keep going left, **there will be only one child or no child**. If there is a child, we have to apply "case 2" before along with replacing the place of the smallest node of the right tree
+    ```   
+        <=              <
+    <-----------[17]------------>
+               /    \
+            [15]    [100] <------------------
+            / \      /  
+          [4] [16] [25] 
+                     \
+                     [37]
+    ```
+
+    [NOTE]: depends on the height of the tree, it is better to replace with the tree that has more height, which can shrink the height of tree, and will be more organized
