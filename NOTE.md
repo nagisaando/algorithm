@@ -302,3 +302,17 @@ function find(node, value) {
     ```
 
     [NOTE]: depends on the height of the tree, it is better to replace with the tree that has more height, which can shrink the height of tree, and will be more organized
+
+
+- Q: What are some practical use cases for Binary Search Trees?: 
+ => A: BSTs excel at searching lists of data (e.g. arrays/maps/sets) where the data is changing frequently (adding and removed). For example, file systems (quickly locate files and directories) or text autocomplete (efficiently store and search through large dictionaries of words). 
+
+
+ ## Heap
+ ### Heap data structure (Priority queue)
+ - Binary tree where every child and grand child is smaller (MaxHeap), or larger(MinHeap) than the current node
+ - Whenever a node is added, we must adjust the tree
+ - Whenever a node is deleted. we must adjust the tree
+ - There is no traversing the tree
+
+ - Heap maintains weak ordering, means not perfectly ordered
