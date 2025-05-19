@@ -315,4 +315,67 @@ function find(node, value) {
  - Whenever a node is deleted. we must adjust the tree
  - There is no traversing the tree
 
- - Heap maintains weak ordering, means not perfectly ordered
+ - Heap maintains **weak ordering**, means not perfectly ordered
+ - Heap is usually full or complete tree, and filled from left
+ ```
+ Minheap - heap condition: every node below the top must be larger than or technically equal to
+                [50] <- minimum item is the root            
+               /    \
+            [71]    [100] 
+            / \      /  \
+        [101] [80] [200] [101]
+```
+
+ ```
+ Maxheap - heap condition: every node below the top must be smaller 
+                [50] <--- maximum item is the root        
+               /    \
+            [25]    [40] 
+            / \      / \
+        [24] [10] [20] [30]
+```
+- Add node
+Add the node in the end of the tree, and bubbling up to the appropriate place
+```
+// minHeap
+                [50] <- minimum item is the root            
+               /    \
+            [71]    [100] 
+            / \      /  \
+        [101] [80] [200] [101]
+          / 
+        [3] <---- new node, which will be swap the position with 101, then 71, then 50
+```
+
+- Delete node
+take the last node of the tree [101] and put it to where the node was deleted [3] and we have heapify it down to put it into a correct spot
+```
+// minHeap
+                [3] <- delete           
+               /    \
+            [50]    [100] 
+            / \      /  \
+        [71] [80] [200] [101]
+        /  
+      [101]
+```
+=> 
+```
+// minHeap
+                [101]       
+               /    \
+            [50]    [100] <------ since 50 is smaller, swap the position of 101 and 50
+            / \      /  \
+        [71] [80] [200] [101]  <------ repeat with 71 and 80
+```
+
+```
+// minHeap
+                [50]       
+               /    \
+            [71]    [100] 
+            / \      /  \
+    ---> [101] [80] [200] [101]  
+```
+
+Getting the last node of tree, we can think the tree as array
