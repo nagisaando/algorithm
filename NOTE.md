@@ -375,7 +375,27 @@ take the last node of the tree [101] and put it to where the node was deleted [3
                /    \
             [71]    [100] 
             / \      /  \
-    ---> [101] [80] [200] [101]  
+    --->[101] [80][200] [101]  
 ```
 
-Getting the last node of tree, we can think the tree as array
+Getting the position of the node, we can think the tree as array
+```
+[50, 71, 100, 101, 80, 200, 101]
+```
+To get child of the node: 
+2i + 1: to get the left child of the node
+2i + 2: to get the right child of the node
+
+Example: 
+For node 100 (index is 2)
+2*2 + 1 = index 5 => 200 is left child 
+2*2 + 2 = index 6 => 101 is right child
+
+To get parent of the node: 
+(i - 1) / 2 and get only integer part (Real programming language does not JS so we need to Math.trunc())
+Example: 
+For node 200 and 201
+(5(index of 200) - 1) / 2 = index 2 => 100 is the parent
+(6(index of 101) - 1) / 2 = index 2 (we don't consider the part of decimals) => 100 is the parent
+
+Getting the end of node => the length of the tree
