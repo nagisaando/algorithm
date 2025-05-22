@@ -343,8 +343,8 @@ Add the node in the end of the tree, and bubbling up to the appropriate place
             [71]    [100] 
             / \      /  \
         [101] [80] [200] [101]
-          / 
-        [3] <---- new node, which will be swap the position with 101, then 71, then 50
+        / 
+      [3] <---- new node, which will be swap the position with 101, then 71, then 50 (heapify up)
 ```
 
 - Delete node
