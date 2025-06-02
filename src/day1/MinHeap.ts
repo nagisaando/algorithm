@@ -1,3 +1,5 @@
+// O(log N)
+
 export default class MinHeap {
     public length: number;
     private data: number[];

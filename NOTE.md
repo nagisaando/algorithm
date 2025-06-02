@@ -9,6 +9,9 @@
 - log N: the time it takes to complete a task grows very slowly as the size of input (N) increases.
 - O(log N) means the time grows very slowly as N increases.
 - It's much faster than O(N) for large datasets.
+- represents operations where the work decreases by a fraction with each step
+
+
 
 ## Binary search
 1. When data-set is ordered
@@ -399,3 +402,29 @@ For node 200 and 201
 (6(index of 101) - 1) / 2 = index 2 (we don't consider the part of decimals) => 100 is the parent
 
 Getting the end of node => the length of the tree
+
+
+### Trie (Re"trie"val tree, Not a priority queue)
+Example: auto-complete
+```
+English (there are 26 letters, hence our children can contain one of 26 symbols)
+
+            [1 of 26 symbols]       
+                /    \
+             [C]      [ ] 
+             / \      / \
+           [A] [ ] [ ] [ ]  
+           /
+CAT----->[T] <--- contains "isWord" boolean, and if it's true, we can consider it is a word
+         / \
+CATS-->[S] [T]
+             \
+             [L]<---- CATTLE
+
+```
+
+- if user types "C", we will find the possible words using depth first search (pre-order traversal)
+- also we can add "score", "frequency" data to give users the most selected words out of huge data
+- insertion
+- deletion => post-traversal
+- O of Height (the length of english word)
