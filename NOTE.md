@@ -311,31 +311,31 @@ function find(node, value) {
  => A: BSTs excel at searching lists of data (e.g. arrays/maps/sets) where the data is changing frequently (adding and removed). For example, file systems (quickly locate files and directories) or text autocomplete (efficiently store and search through large dictionaries of words). 
 
 
- ## Heap
- ### Heap data structure (Priority queue)
- - Binary tree where every child and grand child is smaller (MaxHeap), or larger(MinHeap) than the current node
- - Whenever a node is added, we must adjust the tree
- - Whenever a node is deleted. we must adjust the tree
- - There is no traversing the tree
+## Heap
+### Heap data structure (Priority queue)
+- Binary tree where every child and grand child is smaller (MaxHeap), or larger(MinHeap) than the current node
+- Whenever a node is added, we must adjust the tree
+- Whenever a node is deleted. we must adjust the tree
+- There is no traversing the tree
 
- - Heap maintains **weak ordering**, means not perfectly ordered
- - Heap is usually full or complete tree, and filled from left
- ```
- Minheap - heap condition: every node below the top must be larger than or technically equal to
-                [50] <- minimum item is the root            
-               /    \
-            [71]    [100] 
-            / \      /  \
-        [101] [80] [200] [101]
+- Heap maintains **weak ordering**, means not perfectly ordered
+- Heap is usually full or complete tree, and filled from left
+```
+Minheap - heap condition: every node below the top must be larger than or technically equal to
+            [50] <- minimum item is the root            
+            /    \
+        [71]    [100] 
+        / \      /  \
+    [101] [80] [200] [101]
 ```
 
- ```
- Maxheap - heap condition: every node below the top must be smaller 
-                [50] <--- maximum item is the root        
-               /    \
-            [25]    [40] 
-            / \      / \
-        [24] [10] [20] [30]
+```
+Maxheap - heap condition: every node below the top must be smaller 
+            [50] <--- maximum item is the root        
+            /    \
+        [25]    [40] 
+        / \      / \
+    [24] [10] [20] [30]
 ```
 - Add node
 Add the node in the end of the tree, and bubbling up to the appropriate place
@@ -428,3 +428,84 @@ CATS-->[S] [T]
 - insertion
 - deletion => post-traversal
 - O of Height (the length of english word)
+
+
+
+## Graph
+
+
+### Terminology of Graphs (This is not an exhaustive list of terms)
+
+- cycle: When you start at Node(x), follow the links, and end back at Node(x), needs more than 3 nodes for cycle graph
+- acyclic: A graph that contains no cycles
+- connected: When every node has a path to another node
+- directed: When there is a direction to the connections. Think Twitter
+- undirected: !directed. Think Facebook (i haven't been on in 10 years, it may have changed)
+- weighted: The edges have a weight associated with them. Think Maps
+- dag: Directed, acyclic graph.
+
+### Implementation Terms
+- node: a point or vertex on the graph
+- edge: the connection betxit two nodes
+
+
+### Big O
+BigO is commonly stated in terms of V (vertices) and E (edges)
+For example, O(V * E) means that we will check every vertex, and on every vertex we check every edge
+
+
+### graph representation 
+```
+    w:10
+[0]-----> [1]
+ ⬆ \     ⬆️
+ |   \ w:5|
+ |    \   |
+ |     ↘️ |
+[2]<-----[3]
+```
+
+1. adjacency list 
+```js
+[
+    [
+        // represents 0
+        {
+            // it points to 1 and weigh 10
+            to: 1, weight: 10
+        }, 
+        {
+            to: 3, weight: 5
+        },
+    ],
+    [
+        // represents 1
+        // 1 does not point to anything, so keeps empty array
+    ],
+    [
+        // represents 2
+        {
+            to: 0, weight: ...
+        },
+    ],
+    [
+        // represents 3
+        {
+            to: 2, weight: ...
+        },
+        {
+            to: 1, weight: ...
+        },
+    ]
+]
+```
+2. adjacency matrix (O(V)2: O of vertex squared, and used less common due to memory usage)
+
+```js
+[      0  1  2  3
+    0 [0,10, 0, 5], // if 0 points to the vertex, specifies with weight (0 points to 1 with weight 10)
+    1 [0, 0, 0, 0], // 1 points to any vertex, so all of them are 0
+    2 [          ], 
+    3 [          ],
+]
+```
