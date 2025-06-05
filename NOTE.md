@@ -446,7 +446,7 @@ CATS-->[S] [T]
 
 ### Implementation Terms
 - node: a point or vertex on the graph
-- edge: the connection betxit two nodes
+- edge: the connection between two nodes
 
 
 ### Big O
@@ -456,13 +456,14 @@ For example, O(V * E) means that we will check every vertex, and on every vertex
 
 ### graph representation 
 ```
-    w:10
-[0]-----> [1]
- ⬆ \     ⬆️
- |   \ w:5|
- |    \   |
- |     ↘️ |
-[2]<-----[3]
+        w:10
+    [0]-----> [1]
+    ⬆ \     ⬆️
+ w:1|   \ w:5| w:2
+    |    \   |
+    |     ↘️ |
+    [2]<-----[3]
+          w: 2
 ```
 
 1. adjacency list 
@@ -505,7 +506,10 @@ For example, O(V * E) means that we will check every vertex, and on every vertex
 [      0  1  2  3
     0 [0,10, 0, 5], // if 0 points to the vertex, specifies with weight (0 points to 1 with weight 10)
     1 [0, 0, 0, 0], // 1 points to any vertex, so all of them are 0
-    2 [          ], 
-    3 [          ],
+    2 [1, 0, 0, 0],
+    3 [0, 2, 2, 0]
 ]
 ```
+
+### Basic searches
+Breadth First Search (BFS) and Depth First Search (DFS) still exist on a graph, they are virtually no difference from tree
