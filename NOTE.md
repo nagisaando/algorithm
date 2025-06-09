@@ -466,7 +466,7 @@ For example, O(V * E) means that we will check every vertex, and on every vertex
           w: 2
 ```
 
-1. adjacency list 
+1. adjacency list (O(V+E))
 ```js
 [
     [
