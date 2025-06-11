@@ -1,6 +1,7 @@
 # Note from algorithm lesson
 
 ## Big O Rules
+https://theprimeagen.github.io/fem-algos/lessons/algorithms-and-time-space-complexity/time-and-space-complexity
 1. 
 2. Ignore constants
 
@@ -513,3 +514,7 @@ For example, O(V * E) means that we will check every vertex, and on every vertex
 
 ### Basic searches
 Breadth First Search (BFS) and Depth First Search (DFS) still exist on a graph, they are virtually no difference from tree
+
+
+### Dijkstra's shortest path
+- calculate the shortest path from one node to the all other node in the graph
